@@ -30,6 +30,14 @@ body {
   
 }
 
+.start{
+  position: center;
+  margin-bottom: 5rem;
+  background-color: #11CDD4;
+  position: relative;
+  
+}
+
 .game-over {
   background-color: red;
   opacity: 0.8;
@@ -64,6 +72,7 @@ body {
 }
 
 
+
 /*  Media Query Section */
 @media (max-width: 900px)
 {
@@ -73,10 +82,14 @@ body {
     line-height: 1.5;
     
   }
+  .start{
+    margin-top: 8rem;
+  }
   .main-container{
    width:100%;
-   margin-top: 10rem;
+   /* margin-top: 1rem; */
   }
+  
   .button{
   margin: 7px;
   display: inline-block;

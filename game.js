@@ -70,6 +70,17 @@ $(document).on("keydown",function(){
     }
 });
 
+// detect mouse click on 'Start' button
+$(".start").on("click",function()
+{
+    if (!started) {
+        $("h1").text("Level :" + level);
+        nextSequence();
+        started = true;
+        $(".start").remove();
+    }
+});
+
 function checkAnswer(currentLevel)
 {
     if(gamePattern[currentLevel] === userClickedPattern[currentLevel])
