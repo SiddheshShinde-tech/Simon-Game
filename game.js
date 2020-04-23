@@ -10,6 +10,7 @@ var level=0;
 
 var length;
 
+var c=1; // Count variable for "restart' button 
 
 function nextSequence(){
     userClickedPattern=[];
@@ -67,6 +68,7 @@ $(document).on("keydown",function(){
         $("h1").text("Level :" + level);
         nextSequence();
         started=true;
+        $(".start").remove();
     }
 });
 
@@ -81,9 +83,11 @@ $(".start").on("click",function()
     }
 });
 
+
+
 function checkAnswer(currentLevel)
 {
-    if(gamePattern[currentLevel] === userClickedPattern[currentLevel])
+    if(gamePattern[currentLevel] === userClickedPattern[currentLevel]) 
     {    
         
     
@@ -99,6 +103,7 @@ function checkAnswer(currentLevel)
     else
     {
         $("body").addClass("game-over")
+        
         $("h1").text("Game Over, Press Any Key to Restart");
         var sound2=new Audio("sounds/wrong.mp3");
         sound2.play();
@@ -106,6 +111,21 @@ function checkAnswer(currentLevel)
         {
             $("body").removeClass("game-over")
         },200);
+        if(c===1)
+        {
+        $(".main-container").before('<button type="button" class="restart btn btn-lg ">Restart</button>');
+        c=0;
+        // detect mouse click on 'Restart' button
+        $(".restart").on("click", function () {
+            if (!started) {
+                $("h1").text("Level :" + level);
+                nextSequence();
+                started = true;
+                $(".restart").remove();
+            }
+        
+        })
+    }
         startOver();
     }
 }
