@@ -65,7 +65,7 @@ body {
 
 
 /*  Media Query Section */
-@media (max-width: 700px)
+@media (max-width: 900px)
 {
   #level-title{
     font-size: 2rem;
